@@ -33,7 +33,7 @@ const Todos = () => {
   return (
     <div className="max-w-md mx-auto mt-10 p-4 bg-gray-800 rounded-lg">
       <h1 className="text-3xl font-bold mb-4 text-white">Todos</h1>
-
+      <form action="">
       <input
         type="text"
         className="w-full bg-gray-700 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-2 px-4 leading-8 transition-colors duration-200 ease-in-out mb-4"
@@ -44,6 +44,7 @@ const Todos = () => {
 
       {editingTodo === null ? (
         <button
+        type="submit"
           className="w-full bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded text-lg"
           onClick={handleAddTodo}
         >
@@ -51,12 +52,14 @@ const Todos = () => {
         </button>
       ) : (
         <button
+        type="submit"
           className="w-full bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-600 rounded text-lg"
           onClick={handleUpdateTodo}
         >
           Update Todo
         </button>
       )}
+      </form>
 
       <ul className="mt-6">
         {todos.map((todo) => (
@@ -67,6 +70,7 @@ const Todos = () => {
             <span className="text-white">{todo.text}</span>
             <div className="space-x-2">
               <button
+              type="submit"
                 className="text-white bg-indigo-500 border-0 py-1 px-2 focus:outline-none hover:bg-indigo-600 rounded text-md"
                 onClick={() => {
                   setNewTodo(todo.text);
@@ -76,9 +80,10 @@ const Todos = () => {
                 Edit
               </button>
               <button
+              type="submit"
                 className="text-white bg-red-500 border-0 py-1 px-2 focus:outline-none hover:bg-red-600 rounded text-md"
                 onClick={() => handleDeleteTodo(todo.id)}
-              >
+              > 
                 Delete
               </button>
             </div>
